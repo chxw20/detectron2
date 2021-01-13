@@ -50,3 +50,9 @@ _darcs
 /projects/*/datasets
 /models
 /snippet
+
+# additional
+core.*
+models/
+tmp/
+features/
