@@ -36,7 +36,7 @@ if not os.path.exists(save_dir):
     os.makedirs(save_dir)
 
 img_fnames = os.listdir(data_path)
-for fname in img_fnames:
+for fname in tqdm.tqdm(img_fnames):
     im = cv2.imread(os.path.join(data_path, fname))
 
     if predictor.input_format == "RGB":
