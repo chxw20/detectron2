@@ -68,7 +68,7 @@ for fname in tqdm.tqdm(img_fnames):
     pred_scores = outputs.scores.detach().cpu().numpy()
     pred_masks = outputs.pred_masks.cpu().numpy()
 
-    cls_probs = outputs.cls_probs.detach().cpu().numpy()
+    # cls_probs = outputs.cls_probs.detach().cpu().numpy()
 
     rcnn_data = {
         "box_features": box_features,
@@ -78,7 +78,7 @@ for fname in tqdm.tqdm(img_fnames):
         "pred_masks": pred_masks,
         "pred_classes": pred_classes,
         "w": w, "h": h,
-        "cls_probs": cls_probs
+        # "cls_probs": cls_probs
     }
 
     np.save(os.path.join(save_dir, fname.replace("jpg", "npy")), rcnn_data)
