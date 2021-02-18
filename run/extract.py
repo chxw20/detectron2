@@ -38,6 +38,9 @@ if not os.path.exists(save_dir):
 img_fnames = os.listdir(data_path)
 for fname in tqdm.tqdm(img_fnames):
     im = cv2.imread(os.path.join(data_path, fname))
+    if im is None:
+        print(f"load image failed, skipping {fname} ...")
+        continue
 
     if predictor.input_format == "RGB":
         im = im[:, :, ::-1]
